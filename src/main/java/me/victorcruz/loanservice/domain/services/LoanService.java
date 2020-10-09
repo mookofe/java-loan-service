@@ -2,6 +2,7 @@ package me.victorcruz.loanservice.domain.services;
 
 import org.springframework.stereotype.Service;
 import me.victorcruz.loanservice.domain.models.Loan;
+import me.victorcruz.loanservice.domain.models.Payment;
 import me.victorcruz.loanservice.domain.repositories.LoanRepository;
 import me.victorcruz.loanservice.domain.exceptions.LoanNotFoundException;
 import me.victorcruz.loanservice.domain.exceptions.LoanFeeNotFoundException;
