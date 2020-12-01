@@ -9,22 +9,19 @@ import me.victorcruz.loanservice.domain.repositories.PaymentRepository;
 public class PaymentService {
     private LoanService loanService;
     private PaymentRepository paymentRepository;
-    private BalanceDecreaser balanceDecreaser;
+    private BalanceAdjuster balanceAdjuster;
 
-    public PaymentService(LoanService loanService, PaymentRepository paymentRepository, BalanceDecreaser balanceDecreaser) {
+    public PaymentService(LoanService loanService, PaymentRepository paymentRepository, BalanceAdjuster balanceAdjuster) {
         this.loanService = loanService;
         this.paymentRepository = paymentRepository;
-        this.balanceDecreaser = balanceDecreaser;
+        this.balanceAdjuster = balanceAdjuster;
     }
 
     public Payment store(String loanId, Payment payment) {
         Loan loan = this.loanService.getById(loanId);
         payment.setLoanId(loan.getId());
         this.paymentRepository.save(payment);
-
-
-
-        this.balanceDecreaser.decreaseBalance(loan, payment);
+        this.balanceAdjuster.decreaseBalance(loan, payment);
 
         return payment;
     }

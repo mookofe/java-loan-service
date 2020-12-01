@@ -1,15 +1,15 @@
 package me.victorcruz.loanservice.domain.services;
 
+import org.springframework.stereotype.Service;
 import me.victorcruz.loanservice.domain.models.Loan;
 import me.victorcruz.loanservice.domain.models.Payment;
 import me.victorcruz.loanservice.domain.repositories.LoanRepository;
-import org.springframework.stereotype.Service;
 
 @Service
-public class BalanceDecreaser {
+public class BalanceAdjuster {
     LoanRepository loanRepository;
 
-    public BalanceDecreaser(LoanRepository loanRepository) {
+    public BalanceAdjuster(LoanRepository loanRepository) {
         this.loanRepository = loanRepository;
     }
 
